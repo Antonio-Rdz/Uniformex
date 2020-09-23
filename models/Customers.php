@@ -32,11 +32,12 @@ class Customers extends ActiveRecord
     public function rules()
     {
         return [
-            [['email', 'name'], 'required'],
+            [['email', 'name', 'rfc'], 'required'],
             [['register_time', 'last_updated'], 'safe'],
             [['email'], 'string', 'max' => 45],
             [['name'], 'string', 'max' => 60],
-        ];
+            [['rfc'], 'string', 'max' => 45],
+        ]; 
     }
 
     /**
@@ -48,6 +49,7 @@ class Customers extends ActiveRecord
             'id' => 'ID',
             'email' => 'Email',
             'name' => 'Nombre',
+            'rfc' => 'RFC',
             'register_time' => 'Registro',
             'last_updated' => 'Última Modificación',
         ];
