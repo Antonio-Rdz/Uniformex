@@ -1,0 +1,41 @@
+<?php
+
+use macgyer\yii2materializecss\lib\Html;
+
+
+/* @var $this yii\web\View */
+/* @var $model app\models\RecordCardDesigns */
+/* @var $recordCard app\models\RecordCards */
+/* @var $uploadModel app\models\UploadForm */
+
+
+$this->title = 'Editar logotipo';
+$this->params['breadcrumbs'][] = 'Inventario';
+$this->params['breadcrumbs'][] = ['label' => 'Fichas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $recordCard->model, 'url' => ['record-cards/view', 'id' => $recordCard->id]];
+$this->params['breadcrumbs'][] = 'Logo #'.$model->id;
+$this->params['breadcrumbs'][] = 'Editar';
+?>
+<div class="container">
+
+    <div class="row">
+        <div class="col m12 s12 l12">
+            <h4><?= Html::encode($this->title) ?></h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m12">
+            <div class="card white">
+                <div class="card-content">
+                    <?= $this->render('_form', [
+                        'model' => $model,
+                        'uploadModel' => $uploadModel,
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<input type="hidden" id="id" value="<?=$model->id?>">
