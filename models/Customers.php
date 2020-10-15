@@ -8,9 +8,10 @@ use yii\db\ActiveRecord;
  * This is the model class for table "ufmx_cxs_customers".
  *
  * @property int $id
- * @property string $email
+ * @property string $alias
  * @property string $name
- * @property string $register_time
+ * @property string $rfc
+ * @property string $register_time  
  * @property string $last_updated
  *
  * @property CustomerAddresses[] $addresses
@@ -18,6 +19,9 @@ use yii\db\ActiveRecord;
  */
 class Customers extends ActiveRecord
 {
+   
+    public $mchkb = true;
+
     /**
      * {@inheritdoc}
      */
@@ -31,12 +35,19 @@ class Customers extends ActiveRecord
      */
     public function rules()
     {
+        
         return [
-            [['email', 'name', 'rfc'], 'required'],
-            [['register_time', 'last_updated'], 'safe'],
-            [['email'], 'string', 'max' => 45],
-            [['name'], 'string', 'max' => 60],
+            [['alias', 'name'], 'required'], 
+            [['rfc'], 'string' ,'max' => 45],
+            [['r_social'], 'string' ,'max' => 45], 
+            [['dom_fiscal'], 'string' ,'max' => 45], 
+            [['CFDI'], 'string' ,'max' => 45], 
+            [['c_electronico'], 'string' ,'max' => 45], 
             [['rfc'], 'string', 'max' => 45],
+            [['alias'], 'string', 'max' => 45],
+            [['name'], 'string', 'max' => 60],
+            [['mchkb'], 'boolean'],
+            [['register_time', 'last_updated'], 'safe'],
         ]; 
     }
 
@@ -47,13 +58,19 @@ class Customers extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'email' => 'Email',
+            'alias' => 'Alias',
             'name' => 'Nombre',
+            'mchkb' => 'Tengo TFC',
             'rfc' => 'RFC',
+            'r_social' => 'Razon Social',
+            'dom_fiscal' => 'Domicilio Fiscal',
+            'CFDI' => 'Uso de CFDI',
+            'c_electronico' => 'Correo Electronico',
             'register_time' => 'Registro',
             'last_updated' => 'Última Modificación',
         ];
     }
+
 
     /**
      * @return \yii\db\ActiveQuery

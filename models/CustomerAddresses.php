@@ -20,7 +20,7 @@ use Yii;
  *
  * @property Customers $customer
  * @property Cities $city
- * @property States $state
+ * @property States $state 
  * @property Quotations[] $ufmxMiscQuotations
  */
 class CustomerAddresses extends \yii\db\ActiveRecord
@@ -41,7 +41,7 @@ class CustomerAddresses extends \yii\db\ActiveRecord
         return [
             [['customer_id', 'city_id', 'state_id'], 'required'],
             [['customer_id', 'state_id'], 'integer'],
-            [['alias', 'street', 'number', 'section', 'country'], 'string', 'max' => 45],
+            [['alias', 'street', 'int_num', 'ext_num', 'section', 'country'], 'string', 'max' => 45],
             [['zip_code'], 'string', 'max' => 6],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customers::class, 'targetAttribute' => ['customer_id' => 'id']],
             [['city_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cities::class, 'targetAttribute' => ['city_id' => 'id']],
@@ -59,7 +59,8 @@ class CustomerAddresses extends \yii\db\ActiveRecord
             'customer_id' => 'Cliente',
             'alias' => 'Alias',
             'street' => 'Calle',
-            'number' => 'Número',
+            'int_num' => 'Número interior',
+            'ext_num' => 'Número exterior',
             'section' => 'Fraccionamiento',
             'city_id' => 'Ciudad',
             'state_id' => 'Estado',
