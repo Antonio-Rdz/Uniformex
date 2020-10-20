@@ -23,29 +23,18 @@ use macgyer\yii2materializecss\widgets\form\ActiveForm;
     <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?> 
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-
-
-        <?php 
-        if ('mchkb' == false) {?>
-        <?= 
+ <?= 
         $form->field($model, 'mchkb')->checkbox([
-                    'template' => "<label>{input} <span>Mantener sesión iniciada</span></label><div class=\"col s12\">{error}</div>",
                     'class' => 'filled-in',
-                    'onchange' => 'Url::to(["models/Customers", "mchkb" => true]);'
-                ], false)->label(false) ?> <?php }else{ ?>
+                    ], false)->label(false) ?>
 
-        <?= 
-        $form->field($model, 'mchkb')->checkbox([
-                    'template' => "<label>{input} <span>Mantener sesión iniciada</span></label><div class=\"col s12\">{error}</div>",
-                    'class' => 'filled-in',
-                    'onchange' => 'Url::to(["models/Customers", "mchkb" => false]);'
-                    ], false)->label(false) ?><?=    $form->field($model, 'rfc')->textInput(['maxlength' => true]) ?>
+        <?php if('mchkb' == true){ ?>
+        <?=    $form->field($model, 'rfc')->textInput(['maxlength' => true]) ?>
         <?=    $form->field($model, 'r_social')->textInput(['maxlength' => true]) ?>
         <?=    $form->field($model, 'dom_fiscal')->textInput(['maxlength' => true]) ?>
         <?=    $form->field($model, 'CFDI')->textInput(['maxlength' => true]) ?>
         <?=    $form->field($model, 'c_electronico')->textInput(['maxlength' => true]) ?>
-        <?php } ?>
-
+        <?php }else {} ?>
     
     
     

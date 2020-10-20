@@ -20,7 +20,7 @@ use yii\db\ActiveRecord;
 class Customers extends ActiveRecord
 {
    
-    public $mchkb = true;
+    public $mchkb = false;
 
     /**
      * {@inheritdoc}
@@ -37,6 +37,7 @@ class Customers extends ActiveRecord
     {
         
         return [
+            [['mchkb'], 'boolean'],
             [['alias', 'name'], 'required'], 
             [['rfc'], 'string' ,'max' => 45],
             [['r_social'], 'string' ,'max' => 45], 
@@ -46,7 +47,6 @@ class Customers extends ActiveRecord
             [['rfc'], 'string', 'max' => 45],
             [['alias'], 'string', 'max' => 45],
             [['name'], 'string', 'max' => 60],
-            [['mchkb'], 'boolean'],
             [['register_time', 'last_updated'], 'safe'],
         ]; 
     }
@@ -56,11 +56,12 @@ class Customers extends ActiveRecord
      */
     public function attributeLabels()
     {
+        
         return [
             'id' => 'ID',
             'alias' => 'Alias',
             'name' => 'Nombre',
-            'mchkb' => 'Tengo TFC',
+            'mchkb' => 'Tengo RFC',
             'rfc' => 'RFC',
             'r_social' => 'Razon Social',
             'dom_fiscal' => 'Domicilio Fiscal',

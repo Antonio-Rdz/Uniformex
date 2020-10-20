@@ -17,8 +17,8 @@ class CustomersSearch extends Customers
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['email', 'name'], 'safe'],
+            [['id'], 'integer'], 
+            [['alias', 'name'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class CustomersSearch extends Customers
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'email', $this->email])
+        $query->andFilterWhere(['like', 'alias', $this->alias])
             ->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;

@@ -44,7 +44,7 @@ $warehouses = ArrayHelper::map(\app\models\Warehouses::find()->all(), 'id', 'nam
                     <div class="card-content">
                         <span class="card-title"><?= $customer->name ?></span>
                         <p>
-                            Email: <?= $customer->email ?>
+                            Email: <?= $customer->alias ?>
                         </p>
                     </div>
                     <div class="card-action">

@@ -22,7 +22,7 @@ class CustomerAddressesSearch extends CustomerAddresses
     {
         return [
             [['customer_id', 'city_id', 'state_id'], 'integer'],
-            [['alias', 'street', 'number', 'section', 'country', 'zip_code', 'city', 'state'], 'safe'],
+            [['alias', 'street', 'int_num', 'ext_num', 'section', 'country', 'zip_code', 'city', 'state'], 'safe'],
         ];
     }
 
@@ -76,7 +76,8 @@ class CustomerAddressesSearch extends CustomerAddresses
 
         $query->andFilterWhere(['like', 'alias', $this->alias])
             ->andFilterWhere(['like', 'street', $this->street])
-            ->andFilterWhere(['like', 'number', $this->number])
+            ->andFilterWhere(['like', 'int_num', $this->int_num])
+            ->andFilterWhere(['like', 'ext_num', $this->ext_num])
             ->andFilterWhere(['like', 'section', $this->section])
             ->andFilterWhere(['like', 'country', $this->country])
             ->andFilterWhere(['like', Cities::tableName().'.name', $this->city])

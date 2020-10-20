@@ -113,7 +113,7 @@ echo Html::beginForm(['/site/logout'], 'post', ['id' => 'logout-form']).Html::en
                                 <i class="material-icons right">arrow_drop_down</i>
                             </a>
                         </li>
-                        <?php /* <li>
+                         <li>
                             <a class="dropdown-trigger" href="#!" data-target="orders-menu">
                                 <i class="material-icons left">vertical_split</i>
                                 Ordenes
@@ -126,7 +126,7 @@ echo Html::beginForm(['/site/logout'], 'post', ['id' => 'logout-form']).Html::en
                                 Producción
                                 <i class="material-icons right">arrow_drop_down</i>
                             </a>
-                        </li>  */ ?>
+                        </li>  
                         <?php if(Yii::$app->user->getIdentity()->hasAccess("customers", "index")){ ?>
                             <li>
                                 <?= Html::a('<i class="material-icons left">face</i> Clientes', ['customers/index']) ?>
@@ -166,7 +166,7 @@ echo Html::beginForm(['/site/logout'], 'post', ['id' => 'logout-form']).Html::en
                 </li>
             </ul>
             <ul id="stock-menu" class="dropdown-content">
-                <?php /* if(Yii::$app->user->getIdentity()->hasAccess("products", "index")){ ?>
+                <?php  if(Yii::$app->user->getIdentity()->hasAccess("products", "index")){ ?>
                     <li>
                         <?= Html::a('<i class="material-icons left">vertical_split</i> Productos', ['products/']) ?>
                     </li>
@@ -185,7 +185,7 @@ echo Html::beginForm(['/site/logout'], 'post', ['id' => 'logout-form']).Html::en
                     <li>
                         <?= Html::a('<i class="material-icons left">extension</i> Avíos', ['parts/']) ?>
                     </li>
-                <?php }*/
+                <?php }
                 if (Yii::$app->user->getIdentity()->hasAccess("suppliers", "index")){ ?>
                     <li>
                         <?= Html::a('<i class="material-icons left">store_mall_directory</i> Proveedores', ['suppliers/']) ?>
