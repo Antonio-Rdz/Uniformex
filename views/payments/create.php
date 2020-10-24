@@ -77,7 +77,7 @@ unset($status[4]);
                                         <div class="card-content">
                                             <span class="card-title">Orden <?= $order->order_number ?></span>
                                             <?php foreach ($details as $detail) {
-                                                echo "<p>".$detail['description']." talla ".$detail['size']." ".$detail['quantity']." piezas"."</p>";
+                                                echo "<p>".$detail['description']." talla ".$detail['size_id']." ".$detail['quantity']." piezas"."</p>";
                                             }
                                             $amount += ($detail['quantity'] * $detail['price']);
                                             ?>

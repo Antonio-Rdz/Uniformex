@@ -30,7 +30,11 @@ class LineHistory extends \yii\db\ActiveRecord
      * {@inheritdoc}
      */
     public function rules()
-    {
+    {	//Crear una tabla para el historial de linea
+	//batch_id
+      	//quantity
+      //started_timestamp
+      //produced_timestamp'
         return [
             [['batch_id'], 'required'],
             [['batch_id', 'quantity'], 'integer'],
