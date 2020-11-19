@@ -64,7 +64,7 @@ $lines = ArrayHelper::map(ProductionLines::find()->where(['<>', 'status', Produc
                                                 <?php foreach ($details as $idx => $detail) { ?>
                                                     <tr>
                                                         <td>
-                                                            <?= Html::a($detail['description'], ['record-cards/view', 'id' => $detail['record_card_id']], ['target' => '_blank']) . " Talla ".$detail['size'] ?>
+                                                            <?= Html::a($detail['description'], ['record-cards/view', 'id' => $detail['record_card_id']], ['target' => '_blank']) . " Talla ".$detail['size_id'] ?>
                                                         </td>
                                                         <td>
                                                             <div class="row">
